@@ -51,7 +51,7 @@ else if (osname.startsWith(OS_X)) {
 
 # Dependencies
 
-- `opensc`: to parse the plaintext password input file
+- [`opensc`](https://github.com/OpenSC/OpenSC): to read a smartcard
 - `Oracle Java 7 or OpenJDK 7`: to generate a plaintext password temporary file
 
 # Task Lists
@@ -59,5 +59,5 @@ else if (osname.startsWith(OS_X)) {
 - [x] Debian/Ubuntu
 - [ ] CentOS/Fedora (untested)
 - [ ] Windows Command Prompt
-- [ ] PKSC11Util: Make hard token slot command line parameter
+- [ ] PKSC11Util: Make the hard token slot a command line parameter
 
