@@ -12,7 +12,9 @@ sudo apt-get install opensc
 
 # OSX Install OpenSC (optional for hard token smartcards)
 
-- [ ] To Do
+see: [macOS Quick Start](https://github.com/OpenSC/OpenSC/wiki/macOS-Quick-Start)
+
+- [x] To Do
 
 # Windows Install OpenSC (optional for hard token smartcards)
 
@@ -20,18 +22,29 @@ sudo apt-get install opensc
 
 # PKCS11Util
 
-This program test to ensure that the keystore containing soft and hard tokens is accessible by either Java Keystore (soft) or OpenSC (hard) Keystore.
+This program tests to ensure that the keystore containing soft and hard tokens
+is accessible by either Java Keystore (soft) or OpenSC (hard) Keystore.
 
+## Usage
 ```
 javac PKCS11Util.java
 java PKCS11Util eca  # (soft)
 java PKCS11Util cac  # (hard CAC)
 ```
 
-# Usage
+## Note
 
-# Warning
-
+The slot the smartcard is in will vary from machine to machine. For me, under **OSX** it was **_0_** while under **Ubuntu** it was **_1_**, on one machine with an internal card reader and **_5_**, on another machine with an external card reader. For now, please change the code to set the proper slot number in the code for the **OS** used in ```PKCS11Util.java``` near:
+```
+else if (osname.startsWith(LINUX)) {
+  config.put("library", "/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so");
+  config.put("slot", "1");
+}
+else if (osname.startsWith(OS_X)) {
+  config.put("library", "/usr/local/lib/opensc-pkcs11.so");
+  config.put("slot", "0");
+}
+``` 
 # Files Created
 
 # Example
@@ -46,4 +59,5 @@ java PKCS11Util cac  # (hard CAC)
 - [x] Debian/Ubuntu
 - [ ] CentOS/Fedora (untested)
 - [ ] Windows Command Prompt
+- [ ] PKSC11Util: Make hard token slot command line parameter
 
