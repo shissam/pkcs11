@@ -61,3 +61,4 @@ else if (osname.startsWith(OS_X)) {
 - [ ] Windows Command Prompt
 - [ ] PKSC11Util: Make the hard token slot a command line parameter
 
+circa 202208
